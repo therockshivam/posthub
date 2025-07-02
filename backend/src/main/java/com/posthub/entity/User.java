@@ -38,6 +38,9 @@ public class User extends AbstractBaseEntity {
     @Column(name = "email", nullable = false)
     private String email;
 
+    @Column(name = "username", nullable = false, unique = true, length = 50)
+    private String username;
+
     @Column(name = "password", nullable = false)
     private String password;
 

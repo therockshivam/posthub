@@ -34,7 +34,7 @@ spring:
     description: ${APP_DESCRIPTION:App Description}
   jpa:
     hibernate:
-      ddl-auto: ${DB_DDL_AUTO:none}
+      ddl-auto: ${DB_DDL_AUTO:update}
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -121,3 +121,6 @@ logging:
   logback:
     rollingpolicy:
       file-name-pattern: ./var/logs/app.%d{yyyy-MM-dd}.%i.log
+
+media:
+  upload-dir: ${MEDIA_UPLOAD_DIR:./var/uploads}
