@@ -4,6 +4,7 @@ import com.posthub.controller.Media;
 import com.posthub.repository.MediaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
@@ -80,8 +81,7 @@ public class MediaService {
 
     public Resource loadFile(Long id) throws IOException {
         Media media = getMediaById(id);
-        Path path = Paths.get(media.getFilePath());
-        return new UrlResource(path.toUri());
+        return new ByteArrayResource(media.getFileData());
     }
 }
 
