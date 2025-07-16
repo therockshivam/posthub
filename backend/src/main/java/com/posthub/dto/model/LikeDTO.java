@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table(name = "likes", uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "media_id"}))
-public class Like {
+public class LikeDTO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -8,10 +8,10 @@
         <version>3.2.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.mewebstudio</groupId>
-    <artifactId>java-spring-boot-boilerplate</artifactId>
+    <groupId>com.posthub</groupId>
+    <artifactId>posthub</artifactId>
     <version>0.0.2</version>
-    <name>java-spring-boot-boilerplate</name>
+    <name>posthub</name>
     <description>This is the posthub application</description>
     <properties>
         <java.version>17</java.version>

@@ -1,9 +1,6 @@
 package com.posthub.controller;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +20,10 @@ public class Media {
     private String title;
     private String description;
     private String filePath;
+
+    @Lob
+    @Column(name = "file_data")
+    private byte[] fileData;
 
     private LocalDateTime uploadedAt = LocalDateTime.now();
 

@@ -1,6 +1,7 @@
 package com.posthub.controller;
 
 import com.posthub.service.LikeService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -9,10 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/likes")
 public class LikeController {
 
-    @Autowired private LikeService likeService;
+    private final LikeService likeService;
 
     @PostMapping("/{mediaId}")
     public ResponseEntity<String> like(@PathVariable Long mediaId, Authentication auth) {

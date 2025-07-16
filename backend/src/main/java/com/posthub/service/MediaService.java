@@ -25,7 +25,7 @@ public class MediaService {
     @Autowired
     private MediaRepository mediaRepository;
 
-    public Media saveMedia(MultipartFile file, String title, String description) throws IOException {
+ /*   public Media saveMedia(MultipartFile file, String title, String description) throws IOException {
         String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
         Path path = Paths.get(uploadDir, fileName);
         Files.write(path, file.getBytes());
@@ -36,6 +36,19 @@ public class MediaService {
         media.setTitle(title);
         media.setDescription(description);
         media.setFilePath(path.toString());
+
+        return mediaRepository.save(media);
+    }*/
+
+    public Media saveMedia(MultipartFile file, String title, String description) throws IOException {
+        String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
+
+        Media media = new Media();
+        media.setFileName(fileName);
+        media.setFileType(file.getContentType());
+        media.setTitle(title);
+        media.setDescription(description);
+        media.setFileData(file.getBytes());
 
         return mediaRepository.save(media);
     }
