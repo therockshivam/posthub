@@ -1,6 +1,7 @@
 package com.posthub.config;
 
 import com.posthub.service.InterceptorService;
+import com.posthub.service.LanguageInterceptor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -16,12 +17,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     private final InterceptorService interceptorService;
 
+    private final LanguageInterceptor languageInterceptor;
+
     public WebMvcConfig(
         @Value("${springdoc.swagger-ui.path}") String swaggerUiPath,
-        final InterceptorService interceptorService
+        final InterceptorService interceptorService,
+        final LanguageInterceptor languageInterceptor
     ) {
         this.swaggerUiPath = swaggerUiPath;
         this.interceptorService = interceptorService;
+        this.languageInterceptor = languageInterceptor;
     }
 
     @Override
@@ -46,5 +51,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(final InterceptorRegistry registry) {
         registry.addInterceptor(interceptorService).addPathPatterns("/v1/**");
+        registry.addInterceptor(languageInterceptor).addPathPatterns("/**");
     }
 }

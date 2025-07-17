@@ -15,6 +15,7 @@ public class DashboardController extends AbstractBaseController {
 
     @GetMapping
     public ResponseEntity<String> dashboard() {
-        return ResponseEntity.ok(messageSourceService.get("hi"));
+        System.out.println("Email code "+messageSourceService.get("email_verification"));
+        return ResponseEntity.ok(messageSourceService.get("email_verification"));
     }
 }

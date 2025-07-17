@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.context.annotation.Profile;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.MethodParameter;
 import org.springframework.lang.NonNull;
@@ -20,10 +21,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import java.security.InvalidParameterException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Slf4j
 @Component
@@ -57,6 +55,12 @@ public class InterceptorService implements HandlerInterceptor {
             log.error("Throwing AccessDeniedException because role is not valid for api");
             throw new AccessDeniedException("You are not allowed to perform this operation");
         }
+
+
+        // Set the locale based on the request header or query parameter
+            String lang = request.getHeader("X-Language"); // or Accept-Language or query param
+            LocaleContextHolder.setLocale(Locale.forLanguageTag(lang));
+            log.info("Locale set to: {}", LocaleContextHolder.getLocale());
 
         return true;
     }

@@ -2,6 +2,8 @@ package com.posthub.service;
 
 import com.posthub.controller.Media;
 import com.posthub.repository.MediaRepository;
+import com.posthub.util.ImageUtil;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ByteArrayResource;
@@ -15,6 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -82,6 +85,25 @@ public class MediaService {
     public Resource loadFile(Long id) throws IOException {
         Media media = getMediaById(id);
         return new ByteArrayResource(media.getFileData());
+    }
+
+
+//    compression
+
+    public Media uploadImage(MultipartFile file, String title, String description) throws IOException {
+        Media media = new Media();
+        media.setTitle(title);
+        media.setDescription(description);
+        media.setFileData(ImageUtil.compressImage(file.getBytes()));
+        return media;
+
+    }
+
+    @Transactional
+    public byte[] getImage(Long id) {
+        Optional<Media> foundData = mediaRepository.findById(id);
+        byte[] image = ImageUtil.decompressImage(foundData.get().getFileData());
+        return image;
     }
 }
 

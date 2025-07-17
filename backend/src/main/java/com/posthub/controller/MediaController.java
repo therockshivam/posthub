@@ -82,4 +82,15 @@ public class MediaController {
                 .body(file);
     }
 
+    @PostMapping("/compressed")
+    public ResponseEntity<Media> addCompressedMedia(@RequestParam ("file") MultipartFile file,
+                                                      @RequestParam("title") String title,
+                                                      @RequestParam("description") String description) throws IOException {
+        return ResponseEntity.ok(mediaService.uploadImage(file, title, description));
+    }
+    @GetMapping("/compressed/{id}")
+    public ResponseEntity<byte []> getCompressedMedia(@PathVariable Long id){
+        return ResponseEntity.ok(mediaService.getImage(id));
+    }
+
 }
