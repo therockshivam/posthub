@@ -334,3 +334,5 @@ backend/target/test-classes/com/posthub/service/websocket/WebSocketInterceptorTe
 backend/target/test-classes/com/posthub/service/websocket/WebSocketInterceptorTest.class
 backend/target/test-classes/com/posthub/util/AESCipherTest.class
 backend/target/test-classes/com/posthub/util/RandomStringGeneratorTest.class
+backend/target/
+front/node_modules/
