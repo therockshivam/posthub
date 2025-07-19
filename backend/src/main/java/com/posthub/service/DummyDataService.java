@@ -59,6 +59,7 @@ public class DummyDataService implements CommandLineRunner {
 
         userService.create(CreateUserRequest.builder()
             .email("admin@example.com")
+                        .username("johnadmin")
             .password(defaultPassword)
             .name("John")
             .lastName("DOE")
@@ -69,7 +70,9 @@ public class DummyDataService implements CommandLineRunner {
 
         userService.create(CreateUserRequest.builder()
             .email("user@example.com")
+
             .password(defaultPassword)
+                        .username("johnuser")
             .name("Jane")
             .lastName("DOE")
             .roles(List.of(roleList.get(1)))
