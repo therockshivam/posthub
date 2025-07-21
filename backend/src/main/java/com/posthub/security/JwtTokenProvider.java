@@ -84,6 +84,24 @@ public class JwtTokenProvider {
     }
 
     /**
+     * Generate JWT token by email.
+     *
+     * @param email String
+     * @return String
+     */
+    public String generateTokenFromEmail(String email) {
+        Date now = new Date();
+        Date expiryDate = new Date(now.getTime() + tokenExpiresIn);
+
+        return Jwts.builder()
+                .setSubject(email)
+                .setIssuedAt(now)
+                .setExpiration(expiryDate)
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
+                .compact();
+    }
+
+    /**
      * Generate JWT token by user ID.
      *
      * @param id String
