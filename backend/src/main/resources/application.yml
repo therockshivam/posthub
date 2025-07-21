@@ -100,8 +100,8 @@ spring:
       client:
         registration:
           google:
-            client-id: ${OAUTH2_GOOGLE_CLIENT_ID:615559394357-mcfc3797am3bvvp95ci8ok41jcmfpi97.apps.googleusercontent.com}
-            client-secret: ${OAUTH2_GOOGLE_CLIENT_SECRET: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}
+            client-id: ${OAUTH2_GOOGLE_CLIENT_ID}
+            client-secret: ${OAUTH2_GOOGLE_CLIENT_SECRET}
             scope: profile, email
         provider:
           google:
