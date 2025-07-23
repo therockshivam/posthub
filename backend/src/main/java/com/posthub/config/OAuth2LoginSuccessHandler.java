@@ -46,7 +46,7 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
         logger.info("Base url is : {}", baseUrl);
 
         // Check if email is present
-        if (email == null || email.isEmpty()) {
+        if(email == null || email.isEmpty()) {
             logger.error("Email not found in OAuth2 user attributes");
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Email not found in OAuth2 user attributes");
             return;
