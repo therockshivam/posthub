@@ -49,3 +49,8 @@ mvn clean package
 ```bash
 mvn clean install -DskipITs=true
 ```
+
+### Add this in prograram arguments to run the application
+```text
+--spring.config.import=optional:file:./src/main/resources/application-creds.properties
+```

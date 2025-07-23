@@ -154,7 +154,7 @@ public class AuthService {
      * @param rememberMe Boolean option to set the expiration time for refresh token
      * @return an object of TokenResponse
      */
-    private TokenResponse generateTokens(final UUID id, final Boolean rememberMe) {
+    public TokenResponse generateTokens(final UUID id, final Boolean rememberMe) {
         String token = jwtTokenProvider.generateJwt(id.toString());
         String refreshToken = jwtTokenProvider.generateRefresh(id.toString());
         if (rememberMe) {
