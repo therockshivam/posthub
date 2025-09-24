@@ -1,5 +1,6 @@
 package com.posthub.controller;
 
+import com.posthub.entity.specification.criteria.Media;
 import com.posthub.service.MediaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

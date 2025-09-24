@@ -1,6 +1,6 @@
 package com.posthub.entity;
 
-import com.posthub.controller.Media;
+import com.posthub.entity.specification.criteria.Media;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

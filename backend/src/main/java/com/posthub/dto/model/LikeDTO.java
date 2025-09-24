@@ -1,6 +1,6 @@
 package com.posthub.dto.model;
 
-import com.posthub.controller.Media;
+import com.posthub.entity.specification.criteria.Media;
 import com.posthub.entity.User;
 import jakarta.persistence.*;
 import lombok.Getter;

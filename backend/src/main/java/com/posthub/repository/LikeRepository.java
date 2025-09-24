@@ -1,6 +1,6 @@
 package com.posthub.repository;
 
-import com.posthub.controller.Media;
+import com.posthub.entity.specification.criteria.Media;
 import com.posthub.entity.Like;
 import com.posthub.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -137,7 +137,7 @@ public class WebSecurityConfig {
                                 "/",
                                 "/login", "/auth/**", "/public/**", "/assets/**",
                                 "/api-docs/**", "/swagger-ui/**", "/webjars/**", "/ws/**",
-                                "/oauth2/**", "/oauth2/authorization/**"
+                                "/oauth2/**", "/oauth2/authorization/**","/media/**"
                         )
                         .permitAll()
                         .requestMatchers("/admin/**").hasAuthority(Constants.RoleEnum.ADMIN.name())

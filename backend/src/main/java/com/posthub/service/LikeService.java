@@ -1,6 +1,6 @@
 package com.posthub.service;
 
-import com.posthub.controller.Media;
+import com.posthub.entity.specification.criteria.Media;
 import com.posthub.entity.Like;
 import com.posthub.entity.User;
 import com.posthub.repository.LikeRepository;

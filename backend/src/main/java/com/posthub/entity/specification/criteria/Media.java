@@ -1,4 +1,4 @@
-package com.posthub.controller;
+package com.posthub.entity.specification.criteria;
 
 import jakarta.persistence.*;
 import lombok.Getter;
